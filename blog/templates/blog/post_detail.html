@@ -1,0 +1,24 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+<h1>{{ post.title }}</h1>
+<p>{{ post.post_date|date:"j. F Y, G:i" }} Uhr von {{ post.author }}</p>
+<p>{{ post.content|linebreaksbr }}</p>
+<div style="margin-left:20px;margin-top:20px">
+    {% if post.comment_set.all %}
+
+    <h4>Comments</h4>
+    {% for comment in post.comment_set.all %}
+    <p>
+        <strong>{{ comment.author }}</strong> ({{ comment.comment_date }} Uhr): {{ comment.comment }}
+    </p>
+    {% endfor %}
+    {% endif %}
+    <hr>
+    {% if user.is_authenticated %}
+    <p><a href="{% url 'comment' post.id %}">Add a new comment!</a></p>
+    {% else %}
+    <p><a href="{% url 'login' %}?next={{ request.path }}">Login to add a new comment</a></p>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+html {
+    overflow-y: scroll;
+  }
+
+  .bg-custom-1 {
+    background-color: #85144b;
+  }
+  
+  .bg-custom-2 {
+    background: linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%);  }
+
+

@@ -1,0 +1,17 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+<h1>Bloggers</h1>
+
+{% if author_list %}
+<ul>
+    {% for author in author_list %}
+    <li>
+        <a href="{% url 'author_detail' pk=author.pk %}">{{ author }} </a>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>There are no bloggers yet.</p>
+{% endif %}
+{% endblock %}

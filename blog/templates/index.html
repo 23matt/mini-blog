@@ -1,0 +1,13 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+<h1>Welcome to the django mini-blog</h1>
+<p>This blog project was created by <em>Matthias</em>, and is based on the MDN Django tutorial. </p>
+<h3>Stats about this blog</h3>
+<p>The blog has the following record counts:</p>
+<ul>
+    <li><strong>Number of posts:</strong> {{ num_posts }}</li>
+    <li><strong>Number of bloggers:</strong> {{ num_bloggers }}</li>
+    <li><strong>Number of comments:</strong> {{ num_comments }}</li>
+</ul>
+{% endblock %}

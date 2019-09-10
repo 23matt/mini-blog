@@ -1,0 +1,14 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+<h1>Post List</h1>
+{% if post_list %}
+<ul>
+    {% for post in post_list %}
+    <li>
+        <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }} </a>by {{ post.author }}
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endblock %}

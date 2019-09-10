@@ -1,0 +1,15 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+<h1>Blogger: {{ author }}</h1>
+<h3>Bio</h3>
+<p>{{ author.bio }}</p>
+<h3>Post list</h3>
+{% if post_list %}
+{% for post in post_list %}
+<p><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a> ({{ post.post_date|date }})</p>
+{% endfor %}
+{% else %}
+<p>{{ author }} has not created any blog posts yet.</p>
+{% endif %}
+{% endblock %}
